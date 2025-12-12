@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.name }} | {{ data.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="matrix-rain" id="matrixRain"></div>
+        <div class="grid-overlay"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">JB</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-btn red"></span>
+                        <span class="terminal-btn yellow"></span>
+                        <span class="terminal-btn green"></span>
+                        <span class="terminal-title">portfolio.exe</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="terminal-line"><span class="prompt">$</span> <span class="command">whoami</span></p>
+                        <h1 class="hero-name typing-effect">{{ data.name }}</h1>
+                        <p class="terminal-line"><span class="prompt">$</span> <span class="command">cat role.txt</span></p>
+                        <h2 class="hero-title">{{ data.title }}</h2>
+                        <p class="terminal-line"><span class="prompt">$</span> <span class="command">echo $MISSION</span></p>
+                        <p class="hero-tagline">{{ data.tagline }}</p>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Get In Touch
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="{{ data.github }}" target="_blank" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="{{ data.linkedin }}" target="_blank" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:{{ data.email }}" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-cube" id="codeCube">
+                    <div class="cube-face front">
+                        <pre><code><span class="keyword">class</span> <span class="class-name">Developer</span>:
+    <span class="keyword">def</span> <span class="func">__init__</span>(self):
+        self.name = <span class="string">"Jeevan"</span>
+        self.skills = [<span class="string">"Python"</span>,
+                      <span class="string">"ML"</span>, <span class="string">"APIs"</span>]</code></pre>
+                    </div>
+                    <div class="cube-face back">
+                        <pre><code><span class="keyword">async def</span> <span class="func">build</span>():
+    <span class="keyword">await</span> design_api()
+    <span class="keyword">await</span> deploy()
+    <span class="keyword">return</span> <span class="string">"Success"</span></code></pre>
+                    </div>
+                    <div class="cube-face left">
+                        <pre><code><span class="comment"># Microservices</span>
+<span class="keyword">from</span> kafka <span class="keyword">import</span> Producer
+<span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI
+
+app = FastAPI()</code></pre>
+                    </div>
+                    <div class="cube-face right">
+                        <pre><code><span class="comment"># AWS Lambda</span>
+<span class="keyword">def</span> <span class="func">handler</span>(event):
+    process(event)
+    <span class="keyword">return</span> {
+        <span class="string">"status"</span>: <span class="number">200</span>
+    }</code></pre>
+                    </div>
+                    <div class="cube-face top">
+                        <pre><code><span class="comment"># Machine Learning</span>
+model.fit(X_train)
+predictions = model.predict(X_test)</code></pre>
+                    </div>
+                    <div class="cube-face bottom">
+                        <pre><code><span class="comment"># Testing</span>
+<span class="keyword">def</span> <span class="func">test_api</span>():
+    <span class="keyword">assert</span> response.status == <span class="number">200</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                About Me
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="file-icon"><i class="fas fa-file-code"></i></span>
+                            <span class="file-name">about.json</span>
+                        </div>
+                        <pre class="code-content"><code>{
+  <span class="json-key">"summary"</span>: <span class="json-string">"{{ data.summary }}"</span>,
+  
+  <span class="json-key">"location"</span>: <span class="json-string">"{{ data.location }}"</span>,
+  
+  <span class="json-key">"focus_areas"</span>: [
+    <span class="json-string">"Distributed Backend Systems"</span>,
+    <span class="json-string">"High-Volume APIs"</span>,
+    <span class="json-string">"Event-Driven Microservices"</span>,
+    <span class="json-string">"Machine Learning & NLP"</span>
+  ],
+  
+  <span class="json-key">"passion"</span>: <span class="json-string">"Building reliable, performant software"</span>
+}</code></pre>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Work Experiences</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-number" data-count="4">0</div>
+                        <div class="stat-label">Key Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-code"></i></div>
+                        <div class="stat-number" data-count="90">0</div>
+                        <div class="stat-label">% Code Coverage</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Experience
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="timeline">
+                {% for exp in data.experience %}
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="exp-header">
+                            <div class="exp-info">
+                                <h3 class="exp-title">{{ exp.title }}</h3>
+                                <p class="exp-company">
+                                    {{ exp.company }}
+                                    {% if exp.employer %}<span class="employer">(via {{ exp.employer }})</span>{% endif %}
+                                    {% if exp.collaboration %}<span class="collab">in collaboration with {{ exp.collaboration }}</span>{% endif %}
+                                </p>
+                                {% if exp.project %}
+                                <p class="exp-project"><i class="fas fa-folder-open"></i> {{ exp.project }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="exp-meta">
+                                <span class="exp-period"><i class="far fa-calendar-alt"></i> {{ exp.period }}</span>
+                                <span class="exp-location"><i class="fas fa-map-marker-alt"></i> {{ exp.location }}</span>
+                            </div>
+                        </div>
+                        <ul class="exp-highlights">
+                            {% for highlight in exp.highlights %}
+                            <li><i class="fas fa-chevron-right"></i> {{ highlight }}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="exp-tech">
+                            {% for tech in exp.tech %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Tech Stack
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="skills-grid">
+                {% for category, skills in data.skills.items() %}
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-{{ 'code' if 'Lang' in category else 'cloud' if 'Cloud' in category else 'database' if 'Data' in category else 'globe' if 'Web' in category else 'server' if 'Backend' in category else 'vial' if 'Test' in category else 'robot' if 'ML' in category else 'comment' if 'NLP' in category else 'chart-line' }}"></i>
+                        {{ category }}
+                    </h3>
+                    <div class="skill-items">
+                        {% for skill in skills %}
+                        <div class="skill-item" data-skill="{{ skill }}">
+                            <div class="skill-icon-wrapper">
+                                <i class="skill-icon {{ get_skill_icon(skill) }}"></i>
+                            </div>
+                            <span class="skill-name">{{ skill }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Projects
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="projects-grid">
+                {% for project in data.projects %}
+                <div class="project-card" data-tilt>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-{{ 'brain' if 'Mental' in project.name else 'robot' if 'Chatbot' in project.name or 'Coach' in project.name else 'heartbeat' if 'Medi' in project.name else 'taxi' if 'Taxi' in project.name else 'code-branch' }}"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="{{ project.github }}" target="_blank" class="project-link" title="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-name">{{ project.name }}</h3>
+                    {% if project.type %}
+                    <p class="project-type">{{ project.type }} @ {{ project.institution }}</p>
+                    {% endif %}
+                    {% if project.period %}
+                    <p class="project-period"><i class="far fa-calendar-alt"></i> {{ project.period }}</p>
+                    {% endif %}
+                    <p class="project-description">{{ project.description }}</p>
+                    <ul class="project-highlights">
+                        {% for highlight in project.highlights[:3] %}
+                        <li>{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="project-tech">
+                        {% for tech in project.tech %}
+                        <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Education
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="education-grid">
+                {% for edu in data.education %}
+                <div class="education-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h3 class="edu-degree">{{ edu.degree }}</h3>
+                        <p class="edu-field">{{ edu.field }}</p>
+                        <p class="edu-school"><i class="fas fa-university"></i> {{ edu.school }}</p>
+                        <p class="edu-location"><i class="fas fa-map-marker-alt"></i> {{ edu.location }}</p>
+                        <p class="edu-period"><i class="far fa-calendar-alt"></i> {{ edu.period }}</p>
+                        {% if edu.achievement %}
+                        <div class="edu-achievement">
+                            <i class="fas fa-award"></i> {{ edu.achievement }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Certifications -->
+            <div class="certifications">
+                <h3 class="subsection-title">
+                    <i class="fas fa-certificate"></i> Certifications
+                </h3>
+                <div class="cert-grid">
+                    {% for cert in data.certifications %}
+                    <a href="{{ cert.link }}" target="_blank" class="cert-card">
+                        <div class="cert-badge">
+                            <i class="fas fa-{{ 'aws' if 'AWS' in cert.name else 'code' }}"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4 class="cert-name">{{ cert.name }}</h4>
+                            <p class="cert-issuer">{{ cert.issuer }} • {{ cert.year }}</p>
+                        </div>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-decorator">&lt;</span>
+                Get In Touch
+                <span class="title-decorator">/&gt;</span>
+            </h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-text">
+                        <h3>Let's Build Something Amazing</h3>
+                        <p>I'm currently open to new opportunities and would love to hear about interesting projects. Whether you have a question or just want to say hi, feel free to reach out!</p>
+                    </div>
+                    <div class="contact-methods">
+                        <a href="mailto:{{ data.email }}" class="contact-method">
+                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="method-details">
+                                <span class="method-label">Email</span>
+                                <span class="method-value">{{ data.email }}</span>
+                            </div>
+                        </a>
+                        <a href="tel:{{ data.phone }}" class="contact-method">
+                            <div class="method-icon"><i class="fas fa-phone"></i></div>
+                            <div class="method-details">
+                                <span class="method-label">Phone</span>
+                                <span class="method-value">{{ data.phone }}</span>
+                            </div>
+                        </a>
+                        <div class="contact-method">
+                            <div class="method-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="method-details">
+                                <span class="method-label">Location</span>
+                                <span class="method-value">{{ data.location }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="{{ data.github }}" target="_blank" class="social-btn github">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="{{ data.linkedin }}" target="_blank" class="social-btn linkedin">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                            <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                        </div>
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <span class="code-comment">// Built with</span>
+                    <i class="fas fa-heart" style="color: #ef4444;"></i>
+                    <span class="code-comment">using Flask & JavaScript</span>
+                </p>
+                <p class="footer-copyright">
+                    &copy; {{ 2025 }} {{ data.name }}. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
