@@ -67,7 +67,7 @@ app.jinja_env.globals.update(get_skill_icon=get_skill_icon)
 
 # Portfolio Data
 PORTFOLIO_DATA = {
-    "name": "Jeevan Bala Reddy Arlagadda",
+    "name": "Bala Showri Jeevan Reddy Arlagadda",
     "title": "Software Engineer",
     "tagline": "Building Scalable Systems & Intelligent Solutions",
     "email": "arlagadda.jeevan@gmail.com",
